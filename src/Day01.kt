@@ -7,14 +7,8 @@ fun main() {
 
     // Read the input from the `src/Day00.txt` file.
     val input = readInput("Day01")
-    val list1: MutableList<Int> = mutableListOf()
-    val list2: MutableList<Int> = mutableListOf()
 
-    input.forEach {
-        val (x, y) = it.split("   ")
-        list1.add(x.toInt())
-        list2.add(y.toInt())
-    }
+    val (list1, list2) = input.map {  it.split("   ").map { it.toInt() } }
 
     part1(list1.sorted(), list2.sorted()).println()
     part2(list1.groupingBy { it }.eachCount(), list2.groupingBy { it }.eachCount()).println()
