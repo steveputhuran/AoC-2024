@@ -5,14 +5,14 @@ fun main() {
     // Read the input from the `src/Day00.txt` file.
     val input = readInput("Day00")
 
-    fun part1() {
-
-    }
-
-    fun part2(){
-
-    }
-    
     part1().println()
     part2().println()
+}
+
+private fun part1() {
+
+}
+
+private fun part2(){
+
 }
