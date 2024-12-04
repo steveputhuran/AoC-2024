@@ -1,3 +1,5 @@
+import kotlin.math.abs
+
 fun main() {
 
     // Test input from the `src/Day00_test.txt` file:
@@ -21,11 +23,7 @@ fun main() {
 private fun part1(list1: List<Int>, list2: List<Int>): Int {
     var tot: Int = 0
     for (i in 0..list1.size - 1) {
-        if (list1[i] > list2[i]) {
-            tot += list1[i] - list2[i]
-        } else {
-            tot += list2[i] - list1[i]
-        }
+        abs(list1[i] - list2[i])
     }
     return tot
 }
@@ -33,8 +31,7 @@ private fun part1(list1: List<Int>, list2: List<Int>): Int {
 private fun part2(map1: Map<Int, Int>, map2: Map<Int, Int>): Int {
     var tot = 0
     for (i in 0..map1.size - 1) {
-        val num2 = map2[map1.keys.elementAt(i)] ?: 0
-        tot += map1.keys.elementAt(i) * num2
+        tot += map1.keys.elementAt(i) * (map2[map1.keys.elementAt(i)] ?: 0)
     }
     return tot
 }
