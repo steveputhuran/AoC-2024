@@ -8,16 +8,23 @@ fun main() {
     // Read the input from the `src/Day00.txt` file.
     val input = readInput("Day01")
 
-    val (list1, list2) = input.map {  it.split("   ").map { it.toInt() } }
+    val list1 = mutableListOf<Int>()
+    val list2 = mutableListOf<Int>()
+
+    input.map { it.split("\\s+".toRegex()) }.map {
+        list1.add(it.first().toInt())
+        list2.add(it.last().toInt())
+    }
 
     part1(list1.sorted(), list2.sorted()).println()
     part2(list1.groupingBy { it }.eachCount(), list2.groupingBy { it }.eachCount()).println()
 }
 
 private fun part1(list1: List<Int>, list2: List<Int>): Int {
+
     var tot: Int = 0
     for (i in 0..list1.size - 1) {
-        abs(list1[i] - list2[i])
+        tot += abs(list1[i] - list2[i])
     }
     return tot
 }
